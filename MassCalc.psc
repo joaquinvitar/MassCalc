@@ -1,13 +1,14 @@
 // Subproceso de correción de valor
 subproceso resultado<-errMacro()
 	
-		// corrige el error al intentar poner
-		// un valor de tipo caracter o cadena
-		// en un valor numérico
-		// ----------------------------------
+	// corrige el error al intentar poner
+	// un valor de tipo caracter o cadena
+	// en un valor numérico
+	// ----------------------------------
 	
 	// variables
-	definir i,j,resultado como entero;
+	definir i,j como entero;
+	definir resultado como real;
 	definir cade,cade2,num,var como cadena;
 	
 	// inicialización
@@ -37,8 +38,8 @@ finsubproceso
 Proceso MassCalc
 	
 	// variables
-	definir i,j,menu,kg,mt como entero;
-	definir res como real;
+	definir i,j,menu como entero;
+	definir res,kg,mt como real;
 	definir actv como logico;
 	definir titulo,barra,flecha como cadena;
 	
@@ -106,7 +107,7 @@ Proceso MassCalc
 				mt<-errMacro();
 				menu<-2;
 			2:
-				res<-kg/mt;
+				res<-kg/(mt^2);
 				limpiar pantalla;
 				escribir kg;
 				escribir "** ¡Perfecto! Aquí están tus resultados. **";
@@ -123,20 +124,20 @@ Proceso MassCalc
 					escribir "// Recomendación: Come con más frecuencia";
 					escribir "// e ingiere comidas ricas en nutrientes!";
 				sino si res<=24.9 entonces
-					escribir "** Estado: > Saludable < **";
-					escribir "// Recomendación: Estás bien! Mantente";
-					escribir "// ejercitado y come sano.";
-				sino si res<=29.9 entonces
-					escribir "** Estado: > Sobrepeso < **";
-					escribir "// Recomendación: Estás pasado! Haz";
-					escribir "// ejercicio y empieza a comer sano!";
-				sino si res>=30 entonces
-					escribir "** Estado: > Obesidad < **";
-					escribir "// Recomendación: Exceso de peso! Comienza";
-					escribir "// ahora mismo a hacer ejercicio y comer sano!";
-				finsi
-				finsi
-				finsi
+						escribir "** Estado: > Saludable < **";
+						escribir "// Recomendación: Estás bien! Mantente";
+						escribir "// ejercitado y come sano.";
+					sino si res<=29.9 entonces
+							escribir "** Estado: > Sobrepeso < **";
+							escribir "// Recomendación: Estás pasado! Haz";
+							escribir "// ejercicio y empieza a comer sano!";
+						sino si res>=30 entonces
+								escribir "** Estado: > Obesidad < **";
+								escribir "// Recomendación: Exceso de peso! Comienza";
+								escribir "// ahora mismo a hacer ejercicio y comer sano!";
+							finsi
+						finsi
+					finsi
 				finsi
 				escribir "------------------------------------";
 				escribir "";
